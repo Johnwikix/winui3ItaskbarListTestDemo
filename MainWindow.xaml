@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="testDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:testDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="testDemo">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="WinUI 3 任务栏缩略图按钮演示" 
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       Margin="0,0,0,20"/>
+        <TextBlock Text="请将窗口最小化或悬停在任务栏图标上查看缩略图按钮" 
+                       TextWrapping="Wrap"
+                       Width="400"
+                       HorizontalAlignment="Center"/>
+    </StackPanel>
+</Window>
