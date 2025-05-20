@@ -128,9 +128,9 @@ namespace testDemo.Taskbar
                 _buttons = new ThumbButton[3];
 
                 string appDir = AppDomain.CurrentDomain.BaseDirectory;
-                _iconHandles[0] = CreateIconFromImage(System.IO.Path.Combine(appDir, "Assets\\icon.ico"), 32);
-                _iconHandles[1] = CreateIconFromImage(System.IO.Path.Combine(appDir, "Assets\\icon.ico"), 32);
-                _iconHandles[2] = CreateIconFromImage(System.IO.Path.Combine(appDir, "Assets\\icon.ico"), 32);
+                _iconHandles[0] = CreateIconFromImage(System.IO.Path.Combine(appDir, "Assets\\last.ico"), 32);
+                _iconHandles[1] = CreateIconFromImage(System.IO.Path.Combine(appDir, "Assets\\play.ico"), 32);
+                _iconHandles[2] = CreateIconFromImage(System.IO.Path.Combine(appDir, "Assets\\next.ico"), 32);
 
                 // 按钮1 
                 _buttons[0] = new ThumbButton
@@ -237,13 +237,13 @@ namespace testDemo.Taskbar
             {         
                 playStatus = !playStatus; // 切换播放状态
                 string appDir = AppDomain.CurrentDomain.BaseDirectory;
-                string newIconPath = System.IO.Path.Combine(appDir, "Assets\\output_ico.ico");
+                string newIconPath = System.IO.Path.Combine(appDir, "Assets\\stop.ico");
                 if (playStatus)
                 {
-                    newIconPath = System.IO.Path.Combine(appDir, "Assets\\output_ico.ico");
+                    newIconPath = System.IO.Path.Combine(appDir, "Assets\\stop.ico");
                 }
                 else {
-                    newIconPath = System.IO.Path.Combine(appDir, "Assets\\icon.ico");
+                    newIconPath = System.IO.Path.Combine(appDir, "Assets\\play.ico");
                 }                
                 UpdateButtonIcon(1, newIconPath); // 按钮2的ID是1
                 System.Diagnostics.Debug.WriteLine("已将按钮2的图标更改为Button4.ico");
