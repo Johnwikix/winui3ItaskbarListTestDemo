@@ -201,22 +201,11 @@ namespace testDemo.Taskbar
         {
             try
             {
-                // 创建新图标
                 IntPtr newIcon = CreateIconFromImage(iconPath, size);
-
-                // 保存之前的图标句柄以便释放
                 IntPtr oldIcon = _iconHandles[buttonId];
-
-                // 更新图标句柄数组
                 _iconHandles[buttonId] = newIcon;
-
-                // 更新按钮结构
                 _buttons[buttonId].hIcon = newIcon;
-
-                // 更新任务栏按钮
                 _taskbarList.ThumbBarUpdateButtons(_hwnd, (uint)_buttons.Length, _buttons);
-
-                // 释放旧图标资源
                 if (oldIcon != IntPtr.Zero)
                 {
                     DestroyIcon(oldIcon);
@@ -233,9 +222,9 @@ namespace testDemo.Taskbar
         {
             System.Diagnostics.Debug.WriteLine($"任务栏按钮点击：按钮ID {buttonId}");
 
-            if (buttonId == 1) // 按钮1的ID是0
+            if (buttonId == 1)
             {         
-                playStatus = !playStatus; // 切换播放状态
+                playStatus = !playStatus;
                 string appDir = AppDomain.CurrentDomain.BaseDirectory;
                 string newIconPath = System.IO.Path.Combine(appDir, "Assets\\stop.ico");
                 if (playStatus)
@@ -245,17 +234,14 @@ namespace testDemo.Taskbar
                 else {
                     newIconPath = System.IO.Path.Combine(appDir, "Assets\\play.ico");
                 }                
-                UpdateButtonIcon(1, newIconPath); // 按钮2的ID是1
+                UpdateButtonIcon(1, newIconPath);
                 System.Diagnostics.Debug.WriteLine("已将按钮2的图标更改为Button4.ico");
             }
-
-            // 触发事件
             ThumbButtonClicked?.Invoke(this, new ThumbButtonClickedEventArgs(buttonId));
         }
 
         public void Dispose()
         {
-            // 释放图标资源
             ReleaseIcons();
         }
     }
